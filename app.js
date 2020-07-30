@@ -1,4 +1,4 @@
-const section = document.querySelectorAll("section");
+let section = document.querySelectorAll("section");
 
 const options = {
     root: null,
@@ -7,7 +7,25 @@ const options = {
 };
 const renderSections = (num) => {
 
+    const main = document.querySelector("main");
+
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < num; i++) {
+            const section = document.createElement("section");
+            const h1_text = document.createElement("h1");
+            h1_text.textContent = "This is a section";
+            section.append(h1_text);
+            main.append(section);
+
+            section = document.querySelectorAll("section");
+            
+            resolve("success");
+        }
+    });
 };
+
+renderSections(5).then((res)=>console.log(res));
+
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry)=>{
         if(entry.isIntersecting)
