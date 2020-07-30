@@ -1,0 +1,12 @@
+body {
+    margin: 0
+}
+
+section {
+    height: 50vh;
+    background-color: purple;
+}
+
+.transformed {
+    background-color: pink;
+}
